@@ -86,7 +86,7 @@ Then invoke the class methods anywhere in your Dart code.
 ```dart
 Auth0Flutter2.instance.loginUser();
 Auth0Flutter2.instance.logoutUser();
-Auth0Flutter2.instance.getLoggedInUserId();
+Auth0Flutter2.instance.getLoggedInUserData();
 ```
 
 

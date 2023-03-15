@@ -97,7 +97,7 @@ class Auth0Flutter2 {
 
   /// If user is not authenticated, shows universal login.
   /// Returns user ID of logged in user.
-  Future<String?> loginUser({
+  Future<LoggedUserData?> loginUser({
     Future<void> Function()? afterLogin,
   }) async {
     return await auth02.loginUser(
