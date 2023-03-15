@@ -3,7 +3,7 @@ import 'package:auth0_flutter2/auth0/auth0.dart';
 import 'package:auth0_flutter2/auth0/init_auth0/init_auth0_mobile.dart';
 
 /// Logs in user (via universal login) on mobile.
-Future<String?> loginUser({
+Future<LoggedUserData?> loginUser({
   required String auth0Domain,
   required String auth0ClientId,
   String? scheme,
@@ -17,7 +17,7 @@ Future<String?> loginUser({
 
   try {
     // Check if user is logged in.
-    final user = await getLoggedInUserId(
+    final user = await getLoggedInUserData(
       auth0Domain: auth0Domain,
       auth0ClientId: auth0ClientId,
     );
@@ -27,7 +27,7 @@ Future<String?> loginUser({
       await auth0.webAuthentication(scheme: scheme).login();
 
       // Check again if user is logged in (after auth attempt).
-      final nowUser = await getLoggedInUserId(
+      final nowUser = await getLoggedInUserData(
         auth0Domain: auth0Domain,
         auth0ClientId: auth0ClientId,
       );

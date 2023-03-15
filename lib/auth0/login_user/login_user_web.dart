@@ -5,7 +5,7 @@ import 'package:auth0_flutter2/auth0/auth0_flutter_web/auth0_flutter_web.dart'
 import 'package:flutter/foundation.dart';
 
 /// Logs in user (via universal login) on web.
-Future<String?> loginUser({
+Future<LoggedUserData?> loginUser({
   required String auth0Domain,
   required String auth0ClientId,
   String? scheme,
@@ -20,7 +20,7 @@ Future<String?> loginUser({
 
   try {
     // Check if user is logged in.
-    final user = await getLoggedInUserId(
+    final user = await getLoggedInUserData(
       auth0Domain: auth0Domain,
       auth0ClientId: auth0ClientId,
     );
@@ -36,7 +36,7 @@ Future<String?> loginUser({
       }
 
       // Check again if user is logged in (after auth attempt).
-      final nowUser = await getLoggedInUserId(
+      final nowUser = await getLoggedInUserData(
         auth0Domain: auth0Domain,
         auth0ClientId: auth0ClientId,
       );

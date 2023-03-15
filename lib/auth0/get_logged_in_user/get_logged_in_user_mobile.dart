@@ -1,8 +1,10 @@
 import 'package:auth0_flutter/auth0_flutter.dart';
 import 'package:auth0_flutter2/auth0/init_auth0/init_auth0_mobile.dart';
 
+import 'get_logged_in_user.dart';
+
 /// Fetches authenticated user ID on mobile.
-Future<String?> getLoggedInUserId({
+Future<LoggedUserData?> getLoggedInUserData({
   required String auth0Domain,
   required String auth0ClientId,
   String? redirectUri,
@@ -16,7 +18,8 @@ Future<String?> getLoggedInUserId({
     /// Check if user is logged in.
     if (await auth0.credentialsManager.hasValidCredentials()) {
       var creds = await auth0.credentialsManager.credentials();
-      return creds.user.sub;
+      return LoggedUserData(
+          accessToken: creds.accessToken, userId: creds.user.sub);
     } else {
       return null;
     }

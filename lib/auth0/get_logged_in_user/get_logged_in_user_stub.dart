@@ -1,5 +1,7 @@
+import 'get_logged_in_user.dart';
+
 /// Stub method for getLoggedInUserId.
-Future<String?> getLoggedInUserId({
+Future<LoggedUserData?> getLoggedInUserData({
   required String auth0Domain,
   required String auth0ClientId,
   String? redirectUri,

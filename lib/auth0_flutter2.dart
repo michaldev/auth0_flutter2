@@ -1,6 +1,7 @@
 library auth0_flutter2;
 
 import 'package:auth0_flutter2/auth0/auth0.dart' as auth02;
+import 'package:auth0_flutter2/auth0/get_logged_in_user/get_logged_in_user.dart';
 import 'package:url_strategy/url_strategy.dart' as url_strategy;
 
 /// Base class of the package which is always staticly referenced.
@@ -86,8 +87,8 @@ class Auth0Flutter2 {
 
   /// Fetches the currently authenticated user ID.
   /// Returns null if no user is authenticated.
-  Future<String?> getLoggedInUserId() async {
-    return await auth02.getLoggedInUserId(
+  Future<LoggedUserData?> getLoggedInData() async {
+    return await auth02.getLoggedInUserData(
       auth0Domain: auth0Domain,
       auth0ClientId: auth0ClientId,
       redirectUri: redirectUri,
